@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { ApolloProvider } from "react-apollo";
 import ApolloClient from "apollo-boost";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import logo from "./logo.svg";
 import Post from "./Post";
 import Posts from "./Posts";
