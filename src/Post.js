@@ -3,6 +3,7 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { Link } from "react-router-dom";
 import UpdatePost from "./UpdatePost";
+import EditMode from "./EditMode";
 
 const POST_QUERY = gql`
   query post($id: ID!) {
@@ -12,6 +13,7 @@ const POST_QUERY = gql`
       body
       createdAt
     }
+    isEditMode @client
   }
 `;
 
@@ -22,19 +24,23 @@ export default class Post extends Component {
       <Query query={POST_QUERY} variables={{ id: match.params.id }}>
         {({ data, loading }) => {
           if (loading) return "Loading...";
-          const { post } = data;
+          const { post, isEditMode } = data;
           return (
             <div>
               <Link to="/">
                 <h3>Back</h3>
               </Link>
-              <section>
-                <h1>{post.title}</h1>
-              </section>
-              <section>
-                <h1>Edit Post</h1>
-                <UpdatePost post={post} />
-              </section>
+              <EditMode isEditMode={isEditMode} />
+              {isEditMode ? (
+                <section>
+                  <h1>Edit Post</h1>
+                  <UpdatePost post={post} />
+                </section>
+              ) : (
+                <section>
+                  <h1>{post.title}</h1>
+                </section>
+              )}
             </div>
           );
         }}

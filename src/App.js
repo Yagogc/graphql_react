@@ -7,8 +7,16 @@ import Post from "./Post";
 import Posts from "./Posts";
 import NewPost from "./NewPost";
 
+const defaultState = {
+  isEditMode: false
+};
+
 const client = new ApolloClient({
-  uri: "https://api-euwest.graphcms.com/v1/cjkvc7hft02ir01bnbhofcxxi/master"
+  uri: "https://api-euwest.graphcms.com/v1/cjkvc7hft02ir01bnbhofcxxi/master",
+  clientState: {
+    defaults: defaultState,
+    resolvers: {}
+  }
 });
 
 const App = () => (
