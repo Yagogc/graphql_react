@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { Link } from "react-router-dom";
+import UpdatePost from "./UpdatePost";
 
 const POST_QUERY = gql`
   query post($id: ID!) {
@@ -27,7 +28,13 @@ export default class Post extends Component {
               <Link to="/">
                 <h3>Back</h3>
               </Link>
-              <h1>{post.title}</h1>
+              <section>
+                <h1>{post.title}</h1>
+              </section>
+              <section>
+                <h1>Edit Post</h1>
+                <UpdatePost post={post} />
+              </section>
             </div>
           );
         }}
