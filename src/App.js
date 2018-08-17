@@ -20,12 +20,13 @@ const App = () => (
             <h1 className="App-title">Welcome to GraphQL React</h1>
           </Link>
         </header>
-        <Link to="/post/new">Add Post</Link>
-        <Switch>
-          <Route exact path="/" component={Posts} />
-          <Route path="/post/new" component={NewPost} />
-          <Route path="/post/:id" component={Post} />
-        </Switch>
+        <main>
+          <Switch>
+            <Route exact path="/" component={Posts} />
+            <Route path="/post/new" component={NewPost} />
+            <Route path="/post/:id" component={Post} />
+          </Switch>
+        </main>
       </div>
     </Router>
   </ApolloProvider>

@@ -5,7 +5,7 @@ export default class PostForm extends Component {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired
   };
-  static defaultpProps = {
+  static defaultProps = {
     post: {}
   };
   state = {
@@ -59,7 +59,9 @@ export default class PostForm extends Component {
           value={body}
           onChange={this.handleInput}
         />
-        <button type="submit">Submit</button>
+        <button type="submit" className="button">
+          Submit
+        </button>
       </form>
     );
   }
